@@ -45,7 +45,7 @@
     </div>
 
     <div class="survey-item">
-      <p  class="survey-item-p">一.对医生医疗的满意度</p>
+      <p  class="survey-item-p">1.对医生医疗的满意度</p>
       <ul class="survey-item-ul">
         <li>
           <div class="survey-item-ul-li-div">1.对医生服务态度的满意度</div>
@@ -63,10 +63,10 @@
     </div>
 
     <div class="survey-item">
-      <p class="survey-item-p">二.对护士服务的满意度</p>
+      <p class="survey-item-p">2.对护士服务的满意度</p>
       <ul class="survey-item-ul">
         <li>
-          <div class="survey-item-ul-li-div">1.对护士服务度的满意度</div>
+          <div class="survey-item-ul-li-div">1.对护士服务态度的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.hshi.tdu"></Rate>
         </li>
         <li>
@@ -81,7 +81,7 @@
     </div>
 
     <div class="survey-item">
-      <p class="survey-item-p">三.对医疗科室服务满意度</p>
+      <p class="survey-item-p">3.对医疗科室服务满意度</p>
       <ul class="survey-item-ul">
         <li>
           <div class="survey-item-ul-li-div">1.对检验科服务的满意度</div>
@@ -115,7 +115,7 @@
     </div>
 
     <div class="survey-item">
-      <p class="survey-item-p">四.对后勤及其他部门服务的满意度</p>
+      <p class="survey-item-p">4.对后勤及其他部门服务的满意度</p>
       <ul class="survey-item-ul">
         <li>
           <div class="survey-item-ul-li-div">1.对清洁卫生的满意度</div>
@@ -137,7 +137,7 @@
     </div>
 
     <div class="survey-item">
-      <p class="survey-item-p">五.住院部环境清洁、整齐</p>
+      <p class="survey-item-p">5.住院部环境清洁、整齐</p>
       <ul class="survey-item-ul">
         <li>
           <div class="survey-item-ul-li-div">1.住院部环境清洁、整齐</div>
@@ -147,12 +147,12 @@
     </div>
 
     <div class="survey-item">
-      <p class="survey-item-p">六.请留下您宝贵的建议</p>
+      <p class="survey-item-p">6.请留下您宝贵的建议</p>
       <i-input v-model="cyuan.yjian" type="textarea" :autosize="{minRows: 3,maxRows: 5}" placeholder="请输入..."></i-input>
     </div>
 
     <div class="survey-item">
-      <p class="survey-item-p">七.请留下您的住院号和手机号</p>
+      <p class="survey-item-p">7.请留下您的住院号和手机号</p>
       <i-input :maxlength="7"  v-model="cyuan.xming" style="margin-bottom: 5px;"  placeholder="请输入住院号"></i-input>
       <i-input :maxlength="11" v-model="cyuan.dhua"  placeholder="请输入手机号"></i-input>
     </div>
@@ -224,6 +224,31 @@
     },
     methods:{
       addChuYuan:function(){
+
+        if(this.cyuan.kshi == ''){
+          alert("科室不能为空")
+          return
+        }
+        var a = 0,b = 0
+        for(var i in this.cyuan){
+          a = Number(a)+Number(1);
+          if(this.cyuan[i] == ""){
+            continue
+          }
+          if(Number(a) == 6){
+            break;
+          }
+          var obj=this.cyuan[i]
+          for(var j in obj){
+            b = Number(b)+Number(1)
+            if(obj[j] == 0){
+              alert("第"+(Number(a)-Number(1))+"栏的第"+b+"项未填写，请填写完毕再提交")
+              obj[j].focus();
+              return
+            }
+          }
+          b = Number(0)
+        }
         if(this.cyuan.xming != '' || this.cyuan.dhua != ''){
           if(this.cyuan.xming != ''){
             var reg=/^\d{7}$/
@@ -240,26 +265,9 @@
             }
           }
         }else{
-          alert("住院号和电话请任意填写一个");
+          alert("住院号和电话请必须填写一个");
           return
         }
-        // var reg=/^\d{7}$/
-        // if(this.cyuan.xming==''){
-        //   alert("请输入住院号");
-        //   return
-        // }else if(!reg.test(this.cyuan.xming)){
-        //   alert("住院号格式不正确");
-        //   return
-        // }
-        //
-        // var reg=/^[1][3,4,5,7,8][0-9]{9}$/
-        // if(this.cyuan.dhua==''){
-        //   alert("请输入手机号");
-        //   return
-        // }else if(!reg.test(this.cyuan.dhua)){
-        //   alert("手机号格式不正确");
-        //   return
-        // }
         console.log(this.cyuan)
         this.$api.post('/cyuan/addcyuan',JSON.stringify(this.cyuan),{
             headers:{

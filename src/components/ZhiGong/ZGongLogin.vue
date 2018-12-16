@@ -20,9 +20,9 @@
       <div class="form-ele">
         <Input v-model="user_name" prefix="ios-contact" placeholder="输入OA账号" style="width: auto" />
       </div>
-      <div class="form-ele">
+      <!--<div class="form-ele">
         <Input v-model="user_password" type="password" prefix="ios-eye-off" placeholder="请输入密码" style="width: auto" />
-      </div>
+      </div>-->
       <div class="form-ele">
         <Button type="primary" style="width: 195px" @click="login">登录</Button>
       </div>

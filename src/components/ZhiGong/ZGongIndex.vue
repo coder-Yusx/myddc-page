@@ -7,25 +7,25 @@
       </Col>
     </Row>
 
-    <Card v-for="item in zgdcha.zgbmen" style="width:380px;margin: 5px 0px 0px 10px;">
+    <Card v-for="(item,index) in zgdcha.zgbmen" style="width:380px;margin: 5px 0px 0px 10px;" :key="item.dept">
       <p slot="title" style="font-size: 15px;">
-        {{item.dept}}
+        {{(index+1)+item.dept}}
       </p>
       <ul>
         <li style="list-style-type: none">
-          <span>服务态度</span>
+          <span>1.服务态度</span>
           <Rate style="margin-left: 100px;font-size: 25px;" v-model="item.dcha[0]"></Rate>
         </li>
         <li style="list-style-type: none">
-          <span>服务质量</span>
+          <span>2.服务质量</span>
           <Rate style="margin-left: 100px;font-size: 25px;" v-model="item.dcha[1]"></Rate>
         </li>
         <li style="list-style-type: none">
-          <span>办事效率</span>
+          <span>3.办事效率</span>
           <Rate style="margin-left: 100px;font-size: 25px;" v-model="item.dcha[2]"></Rate>
         </li>
         <li style="list-style-type: none">
-          <span>劳动纪律</span>
+          <span>4.劳动纪律</span>
           <Rate style="margin-left: 100px;font-size: 25px;" v-model="item.dcha[3]"></Rate>
         </li>
       </ul>
@@ -39,7 +39,7 @@
     <Row style="padding: 10px 0px 10px 0px;border-radius: 5px;">
       <Col span="24">
         <i-button type="primary" long @click="addZGong">提交</i-button>
-        <i-button style="margin-top: 10px;" type="primary" long @click="test">测试</i-button>
+        <!--<i-button style="margin-top: 10px;" type="primary" long @click="test">测试</i-button>-->
       </Col>
     </Row>
   </div>
@@ -58,7 +58,23 @@
       }
     },
     methods:{
+
       addZGong:function(){
+
+        var dc=this.zgdcha.zgbmen
+        for(var i in dc){
+          var fs = dc[i].dcha
+          for(var j in fs){
+            if(fs[j] == 0){
+              alert("第"+(Number(i)+Number(1))+"栏的第"+(Number(j)+Number(1))+"项未填写，请填写完毕再提交")
+              return
+            }
+          }
+        }
+        /*if(this.zgdcha.zgyjian == ''){
+          alert("意见和建议不能为空")
+          return
+        }*/
         if(localStorage.getItem('username') != null && localStorage.getItem('username') != undefined){
           this.zgdcha.username = localStorage.getItem('username')
         }

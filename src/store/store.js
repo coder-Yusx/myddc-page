@@ -1368,6 +1368,12 @@ export const store = new Vuex.Store({
         dcha:[0,0,0,0]
       }
     ]
+    },
+    yji:{
+      yjyjian:'',
+      yjkshi:[
+        {dept:'',dcha:[]}
+      ]
     }
   },
   getters:{
