@@ -9,8 +9,8 @@ import axios from 'axios'
 import {store} from './store/store'
 
 Vue.prototype.$api = axios
-//axios.defaults.baseURL = '/api/'
-axios.defaults.baseURL = 'http://www.yushengxian.cn:8081/'
+axios.defaults.baseURL = '/api/'
+//axios.defaults.baseURL = 'http://www.yushengxian.cn:8081/'
 //Vue.prototype.HOST = '/api'
 Vue.config.productionTip = false
 Vue.use(iView)

@@ -402,7 +402,7 @@
           return
         }
         console.log(this.cyuan)
-        this.$api.post('/cyuan/addcyuan',JSON.stringify(this.cyuan),{
+        this.$api.post('/cydc/addcydc',JSON.stringify(this.cyuan),{
             headers:{
               "Content-Type":"application/json;charset=UTF-8"
             }
