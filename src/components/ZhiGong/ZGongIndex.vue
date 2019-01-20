@@ -7,7 +7,8 @@
       </Col>
     </Row>
 
-    <Card v-for="(item,index) in zgdcha.zgbmen" style="width:380px;margin: 5px 0px 0px 10px;" :key="item.dept">
+    <Card  v-for="(item,index) in zgdcha.zgbmen" style="width:380px;margin: 5px 0px 0px 10px;" :key="item.dept">
+      <div :id="'anchor-'+index"></div>
       <p slot="title" style="font-size: 15px;">
         {{(index+1)+item.dept}}
       </p>
@@ -33,7 +34,7 @@
 
     <Row style="padding: 10px 0px 10px 0px;border-radius: 5px;">
       <Col span="24">
-        <i-input type="textarea" :rows="4" placeholder="请输入意见和建议" v-model="zgdcha.zgyjian"></i-input>
+        <i-input type="textarea" :rows="4" placeholder="请输入建议和意见" v-model="zgdcha.zgyjian"></i-input>
       </Col>
     </Row>
     <Row style="padding: 10px 0px 10px 0px;border-radius: 5px;">
@@ -58,26 +59,26 @@
       }
     },
     methods:{
-
       addZGong:function(){
-
         var dc=this.zgdcha.zgbmen
         for(var i in dc){
           var fs = dc[i].dcha
           for(var j in fs){
             if(fs[j] == 0){
+              document.getElementById('anchor-'+i).scrollIntoView()
               alert("第"+(Number(i)+Number(1))+"栏的第"+(Number(j)+Number(1))+"项未填写，请填写完毕再提交")
               return
             }
           }
         }
+        if(localStorage.getItem('username') != null && localStorage.getItem('username') != undefined){
+          this.zgdcha.username = localStorage.getItem('username')
+        }
+
         /*if(this.zgdcha.zgyjian == ''){
           alert("意见和建议不能为空")
           return
         }*/
-        if(localStorage.getItem('username') != null && localStorage.getItem('username') != undefined){
-          this.zgdcha.username = localStorage.getItem('username')
-        }
         console.log(this.zgdcha);
         this.$api.post('/zgong/addczgong',JSON.stringify(this.zgdcha),{
             headers:{
@@ -86,6 +87,10 @@
           }
         ).then((data) => {
           console.log(data.data)
+          if(data.data.meta.message == 'error'){
+            alert("一个月内一个账号只能填写一次")
+            return
+          }
           if(data.data.meta.message == 'ok'){
             this.$router.push({path: '/comsuccess'})
           }

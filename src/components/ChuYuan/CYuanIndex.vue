@@ -45,19 +45,43 @@
       <input id="content" style="border: 0px;width: 0px;" />
     </div>
 
-    <!--<div class="survey-item">
+    <div class="survey-item">
+      <p class="survey-item-p">1.对医生服务的满意度</p>
+      <ul class="survey-item-ul">
+        <li>
+          <div id="11" class="survey-item-ul-li-div">1.对医生服务态度的满意度</div>
+          <Rate style="font-size: 28px;" v-model="cyuan.ysheng.tdu"></Rate>
+        </li>
+        <li>
+          <div id="12" class="survey-item-ul-li-div">2.对医生医疗技术的满意度</div>
+          <Rate style="font-size: 28px;" v-model="cyuan.ysheng.jsu"></Rate>
+        </li>
+        <li>
+          <div id="13" class="survey-item-ul-li-div">3.对医生告知病情的满意度</div>
+          <Rate style="font-size: 28px;" v-model="cyuan.hshi.xlu"></Rate>
+          <input v-focus="true"/>
+        </li>
+        <li>
+          <div id="14" class="survey-item-ul-li-div">4.对医生告知病情的满意度</div>
+          <Rate style="font-size: 28px;" v-model="cyuan.hshi.xlu"></Rate>
+          <input v-focus="true"/>
+        </li>
+      </ul>
+    </div>
+
+    <div class="survey-item">
       <p class="survey-item-p">2.对护士服务的满意度</p>
       <ul class="survey-item-ul">
         <li>
-          <div class="survey-item-ul-li-div">1.对护士服务态度的满意度</div>
+          <div id="21" class="survey-item-ul-li-div">1.对护士服务态度的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.hshi.tdu"></Rate>
         </li>
         <li>
-          <div class="survey-item-ul-li-div">2.对护士护理技术的满意度</div>
+          <div id="22" class="survey-item-ul-li-div">2.对护士护理技术的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.hshi.jsu"></Rate>
         </li>
         <li>
-          <div class="survey-item-ul-li-div">3.对护士护理服务及时、主动性的满意度</div>
+          <div id="23" class="survey-item-ul-li-div">3.对护士护理服务及时、主动性的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.hshi.xlu"></Rate>
           <input v-focus="true"/>
         </li>
@@ -68,33 +92,32 @@
       <p class="survey-item-p">3.对医疗科室服务满意度</p>
       <ul class="survey-item-ul">
         <li>
-          <div class="survey-item-ul-li-div">1.对检验科服务的满意度</div>
+          <div id="31" class="survey-item-ul-li-div">1.对检验科服务的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.yliao.jyan"></Rate>
         </li>
         <li>
-          <div class="survey-item-ul-li-div">2.对放射科（拍片）服务的满意度</div>
+          <div id="32" class="survey-item-ul-li-div">2.对放射科（拍片）服务的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.yliao.fshe"></Rate>
         </li>
         <li>
-          <div class="survey-item-ul-li-div">3.对CT是服务的满意度</div>
+          <div id="33" class="survey-item-ul-li-div">3.对CT是服务的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.yliao.ct"></Rate>
         </li>
         <li>
-          <div class="survey-item-ul-li-div">4.对核磁室服务的满意度</div>
+          <div id="34" class="survey-item-ul-li-div">4.对核磁室服务的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.yliao.hci"></Rate>
         </li>
         <li>
-          <div class="survey-item-ul-li-div">5.对超生诊断科（B超）服务的满意度</div>
+          <div id="35" class="survey-item-ul-li-div">5.对超生诊断科（B超）服务的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.yliao.csheng"></Rate>
         </li>
         <li>
-          <div class="survey-item-ul-li-div">6.对心电图室服务的满意度</div>
+          <div id="36" class="survey-item-ul-li-div">6.对心电图室服务的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.yliao.xdian"></Rate>
         </li>
         <li>
-          <div class="survey-item-ul-li-div">7.对推拿室服务的满意度</div>
+          <div id="37" class="survey-item-ul-li-div">7.对推拿室服务的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.yliao.tna"></Rate>
-
         </li>
       </ul>
     </div>
@@ -103,19 +126,19 @@
       <p class="survey-item-p">4.对后勤及其他部门服务的满意度</p>
       <ul class="survey-item-ul">
         <li>
-          <div class="survey-item-ul-li-div">1.对清洁卫生的满意度</div>
+          <div id="41" class="survey-item-ul-li-div">1.对清洁卫生的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.hqin.wsheng"></Rate>
         </li>
         <li>
-          <div class="survey-item-ul-li-div">2.对膳食的满意度</div>
+          <div id="42" class="survey-item-ul-li-div">2.对膳食的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.hqin.sshi"></Rate>
         </li>
         <li>
-          <div class="survey-item-ul-li-div">3.对办理出、入院手续的满意度</div>
+          <div id="43" class="survey-item-ul-li-div">3.对办理出、入院手续的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.hqin.rcyuan"></Rate>
         </li>
         <li>
-          <div class="survey-item-ul-li-div">4.对保障：水、电、电梯的满意度</div>
+          <div id="44" class="survey-item-ul-li-div">4.对保障：水、电、电梯的满意度</div>
           <Rate style="font-size: 28px;" v-model="cyuan.hqin.sddti"></Rate>
         </li>
       </ul>
@@ -125,21 +148,21 @@
       <p class="survey-item-p">5.住院部环境清洁、整齐</p>
       <ul class="survey-item-ul">
         <li>
-          <div class="survey-item-ul-li-div">1.住院部环境清洁、整齐</div>
+          <div id="51" class="survey-item-ul-li-div">1.住院部环境清洁、整齐</div>
           <Rate style="font-size: 28px;" v-model="cyuan.zybwsheng.wsheng"></Rate>
         </li>
       </ul>
-    </div>-->
-    <div class="survey-item" v-for="(group,index) in cyuan.dcha">
+    </div>
+    <!--<div class="survey-item" v-for="(group,index) in cyuan.dcha">
       <p  class="survey-item-p">{{(index+1)+group.groupname}}</p>
       <ul class="survey-item-ul">
         <li v-for="(item,index) in group.itemlist" @click="updateJdian(item.itemname)">
-          <div class="survey-item-ul-li-div">{{(index+1)+item.itemname}}</div>
+          <div :ref="item.itemname" class="survey-item-ul-li-div">{{(index+1)+item.itemname}}</div>
           <Rate style="font-size: 28px;" v-model="item.itemscore" ></Rate>
           <input v-focus="item.jdian" style="border: 0px;width: 0px;" />
         </li>
       </ul>
-    </div>
+    </div>-->
 
     <div class="survey-item">
       <p class="survey-item-p">6.请留下您宝贵的建议</p>
@@ -148,8 +171,8 @@
 
     <div class="survey-item">
       <p class="survey-item-p">7.请留下您的住院号和手机号</p>
-      <i-input :maxlength="7"  v-model="cyuan.zyhao" style="margin-bottom: 5px;"  placeholder="请输入住院号"></i-input>
-      <i-input :maxlength="11" v-model="cyuan.sjhao"  placeholder="请输入手机号"></i-input>
+      <i-input :maxlength="7"  v-model="cyuan.xming" style="margin-bottom: 5px;"  placeholder="请输入住院号"></i-input>
+      <i-input :maxlength="11" v-model="cyuan.dhua"  placeholder="请输入手机号"></i-input>
     </div>
 
     <div class="survey-item">
@@ -161,7 +184,7 @@
 <script>
 
   export default {
-    directives: {
+    /*directives: {
       focus: {
         update: function (el, {value}) {
           if (value) {
@@ -170,10 +193,10 @@
           }
         }
       }
-    },
+    },*/
     data:function(){
       return {
-        /*cyuan:{
+        cyuan:{
           kshi:'',
           ysheng:{
             tdu:0,
@@ -206,8 +229,8 @@
           yjian:'',
           xming:'',
           dhua:''
-        },*/
-        cyuan:{
+        },
+        /*cyuan:{
           kshi:'',
           dcha:[
             {
@@ -329,7 +352,7 @@
           yjian:'',
           zyhao:'',
           sjhao:''
-        },
+        },*/
         zyKshi:[]
       }
     },
@@ -366,33 +389,34 @@
       },
       addChuYuan:function(){
 
-        if(this.cyuan.kshi == ''){
+        /*if(this.cyuan.kshi == ''){
           alert("科室不能为空")
           document.getElementById("content").focus();
           return
-        }
-        for(var i in this.cyuan.dcha){
+        }*/
+        /*for(var i in this.cyuan.dcha){
           var group = this.cyuan.dcha[i]
           for(var j in group.itemlist){
             var item = group.itemlist[j]
             if(item.itemscore == 0){
-              item.jdian = true
-              alert("第"+(Number(i)+Number(1))+"栏的第"+(Number(j)+Number(1))+"项未填写，请填写完毕再提交")
+              this.$refs
+              //item.jdian = true
+              //alert("第"+(Number(i)+Number(1))+"栏的第"+(Number(j)+Number(1))+"项未填写，请填写完毕再提交")
               return
             }
           }
-        }
-        if(this.cyuan.zyhao != '' || this.cyuan.sjhao != ''){
-          if(this.cyuan.zyhao != ''){
+        }*/
+        if(this.cyuan.xming != '' || this.cyuan.dhua != ''){
+          if(this.cyuan.xming != ''){
             var reg=/^\d{7}$/
-            if(!reg.test(this.cyuan.zyhao)){
+            if(!reg.test(this.cyuan.xming)){
               alert("住院号格式不正确");
               return
             }
           }
-          if(this.cyuan.sjhao!=''){
+          if(this.cyuan.dhua!=''){
             var reg=/^[1][3,4,5,7,8][0-9]{9}$/
-            if(!reg.test(this.cyuan.sjhao)){
+            if(!reg.test(this.cyuan.dhua)){
               alert("手机号格式不正确");
               return
             }
@@ -402,7 +426,7 @@
           return
         }
         console.log(this.cyuan)
-        this.$api.post('/cydc/addcydc',JSON.stringify(this.cyuan),{
+        this.$api.post('/cydc/addcyuan',JSON.stringify(this.cyuan),{
             headers:{
               "Content-Type":"application/json;charset=UTF-8"
             }

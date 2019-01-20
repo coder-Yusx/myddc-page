@@ -1280,7 +1280,7 @@ export const store = new Vuex.Store({
         dcha:[0,0,0,0]
       },
       {
-        dept:'人力资源部',
+        dept:'人力资源处',
         dcha:[0,0,0,0]
       },
       {
@@ -1312,7 +1312,7 @@ export const store = new Vuex.Store({
         dcha:[0,0,0,0]
       },
       {
-        dept:'科研教学科',
+        dept:'科研处',
         dcha:[0,0,0,0]
       },
       {
@@ -1320,7 +1320,7 @@ export const store = new Vuex.Store({
         dcha:[0,0,0,0]
       },
       {
-        dept:'院感办',
+        dept:'感控办',
         dcha:[0,0,0,0]
       },
       {
@@ -1336,15 +1336,15 @@ export const store = new Vuex.Store({
         dcha:[0,0,0,0]
       },
       {
-        dept:'维修班',
+        dept:'医改办',
         dcha:[0,0,0,0]
       },
       {
-        dept:'电工班',
+        dept:'对外关系部',
         dcha:[0,0,0,0]
       },
       {
-        dept:'管道班',
+        dept:'经管办',
         dcha:[0,0,0,0]
       },
       {
@@ -1352,11 +1352,11 @@ export const store = new Vuex.Store({
         dcha:[0,0,0,0]
       },
       {
-        dept:'收费室',
+        dept:'老干部处',
         dcha:[0,0,0,0]
       },
       {
-        dept:'统计室',
+        dept:'保卫处',
         dcha:[0,0,0,0]
       },
       {
@@ -1366,8 +1366,28 @@ export const store = new Vuex.Store({
       {
         dept:'门诊部',
         dcha:[0,0,0,0]
+      },
+      {
+        dept:'东津院区综合办',
+        dcha:[0,0,0,0]
+      },
+      {
+        dept:'北院区综合办',
+        dcha:[0,0,0,0]
+      },
+      {
+        dept:'临床学院教育教学办',
+        dcha:[0,0,0,0]
+      },
+      {
+        dept:'临床学院护理系',
+        dcha:[0,0,0,0]
+      },
+      {
+        dept:'继续教育办公室',
+        dcha:[0,0,0,0]
       }
-    ]
+      ]
     },
     yji:{
       yjyjian:'',

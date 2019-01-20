@@ -34,24 +34,43 @@
     data:function () {
       return {
         'user_name':'',
-        'user_password':''
       }
     },
     methods:{
       login:function () {
-        this.$api.get('login/'+this.user_name,{
+        if(this.user_name == ''){
+          alert("用户名不能为空")
+        }
+        //校验多次填写（一个月内）
+        this.$api.get('zgong/dcmonth' ,{
             headers:{
               "Access-Control-Allow-Origin":"*",
-              "Content-Type":"application/json;charset=UTF-8",
+            },
+            params:{
+              username:this.user_name,
             }
           }
         ).then((data) => {
           console.log(data.data)
-          if(data.data.meta.message == 'ok' && (this.user_password == '' || this.user_password == undefined || this.user_password == null)){
-            localStorage.setItem("username",this.user_name)
-            this.$router.push({path: '/zgong/index'})
+          if(data.data.meta.message == 'error'){
+            alert("一个月内不能填写多次")
+            return;
           }else{
-            alert('用户名或密码错误')
+            this.$api.get('login/'+this.user_name,{
+                headers:{
+                  "Access-Control-Allow-Origin":"*",
+                  "Content-Type":"application/json;charset=UTF-8",
+                }
+              }
+            ).then((data) => {
+              console.log(data.data)
+              if(data.data.meta.message == 'ok'){
+                localStorage.setItem("username",this.user_name)
+                this.$router.push({path: '/zgong/index'})
+              }else{
+                alert('用户名错误')
+              }
+            })
           }
         })
       }

@@ -8,18 +8,24 @@ import SurveySearch from  '../components/backstage/SurveySearch'
 import WxLogin from '../components/wx/WxLogin'
 import CYuan from '../components/ChuYuan/CYuan'
 import CYuanIndex from '../components/ChuYuan/CYuanIndex'
-import CommonSuccess from '../components/Common/CommonSuccess'
+import CYuanIndex2 from '../components/ChuYuan/CYuanIndex2'
 import CYuanCount from '../components/ChuYuan/CYuanCount'
+import CYuanCount2 from '../components/ChuYuan/CYuanCount2'
+import CommonSuccess from '../components/Common/CommonSuccess'
+
 import ZGong from '../components/ZhiGong/ZGong'
 import ZGongIndex from '../components/ZhiGong/ZGongIndex'
 import ZGongLogin from '../components/ZhiGong/ZGongLogin'
 import ZGongCount from '../components/ZhiGong/ZGongCount'
 
+import Wx from '../components/wx/Wx'
+import WxOauth2 from '../components/wx/WxOauth2'
+
 Vue.use(Router)
 
 const router = new Router({
-  //mode:'history',
-  base: '/dist',
+  mode:'history',
+  base: '/dist/',
   routes: [
     /*{
       path: '/helloword',
@@ -62,15 +68,25 @@ const router = new Router({
       name: 'CYuan',
       component: CYuan,
       children:[
-        {
+        /*{
           path: 'index',
           name: 'CYuanIndex',
           component: CYuanIndex,
-        },
+        },*/
         {
+          path: 'index',
+          name: 'CYuanIndex2',
+          component: CYuanIndex2,
+        },
+        /*{
           path: 'count',
           name: 'CYuanCount',
           component: CYuanCount
+        },*/
+        {
+          path: 'count',
+          name: 'CYuanCount2',
+          component: CYuanCount2
         }
       ]
     },
@@ -93,6 +109,17 @@ const router = new Router({
           path:'count',
           name:'ZGongCount',
           component:ZGongCount
+        }
+      ]
+    },{
+      path:'/wx',
+      name:'Wx',
+      component:Wx,
+      children:[
+        {
+          path:'oauth2',
+          name:'WxOauth2',
+          component:WxOauth2
         }
       ]
     }
